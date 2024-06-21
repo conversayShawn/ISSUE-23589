@@ -1,5 +1,9 @@
 name: Run Cypress Tests using on Single Machine
-on: [push, pull_request]
+on: 
+  push:
+  pull_request:
+  schedule:
+        - cron: '0 */4 * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -11,7 +15,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           record: true
-          tag: standard
+          tag: issue-23589
           browser: chrome
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
