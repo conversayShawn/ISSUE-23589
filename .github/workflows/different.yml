@@ -1,9 +1,6 @@
 name: Run Cypress Tests using on Single Machine
-on: 
-    push:
-    pull_request:
-    schedule:
-          - cron: '0 */4 * * *'
+on: [push, pull_request]
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
